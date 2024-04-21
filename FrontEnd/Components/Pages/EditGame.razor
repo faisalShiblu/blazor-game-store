@@ -1,5 +1,7 @@
 ﻿@page "/editgame"
 
+@inject NavigationManager NavigationManager
+
 
 <PageTitle>New Game</PageTitle>
 <h3>New Game</h3>
@@ -70,6 +72,7 @@ else
 
         gamesClient.AddGame(game);
 
+        NavigationManager.NavigateTo("/");
     }
 
 
