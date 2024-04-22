@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject GamesClient Client
 
 <PageTitle>Game Catalog</PageTitle>
 
@@ -50,7 +51,6 @@ else
 }
 
 @code {
-    private GamesClient Client = new GamesClient();
 
     private GameList[]? games;
 
