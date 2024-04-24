@@ -37,7 +37,7 @@ public class GamesClient()
     {
         GameList? game = games.Find(s => s.Id == Id);
         ArgumentNullException.ThrowIfNull(game);
-        var genre = genres.Single(s => string.Equals(s.Name, game.Name, StringComparison.OrdinalIgnoreCase));
+        var genre = genres.Single(s => s.Name == game.Genre);
 
         return new GameDetails
         {
