@@ -94,7 +94,15 @@ else
     {
         ArgumentNullException.ThrowIfNull(game);
 
-        GamesClient.AddGame(game);
+        if (Id is null)
+        {
+            GamesClient.AddGame(game);
+        }
+        else
+        {
+            game.Id = Id.Value;
+            GamesClient.EditGame(game);
+        }
 
         NavigationManager.NavigateTo("/");
     }
