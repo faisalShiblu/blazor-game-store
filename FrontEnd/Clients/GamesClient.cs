@@ -57,6 +57,12 @@ public class GamesClient()
         existingGame.ReleaseDate = game.ReleaseDate;
     }
 
+    public void DeleteGame(int Id)
+    {
+        GameList game = GetGameSummaryById(Id);
+        games.Remove(game);
+    }
+
     private Genre GetGenreById(string? id)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(id);

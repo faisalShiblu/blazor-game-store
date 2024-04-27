@@ -16,7 +16,7 @@ public class GameDetails
     [JsonConverter(typeof(StringConverter))]
     public string? GenreId { get; set; }
 
-    [Range(1, 100)]
+    [Range(1, 1000)]
     public decimal Price { get; set; }
 
     public DateOnly ReleaseDate { get; set; }

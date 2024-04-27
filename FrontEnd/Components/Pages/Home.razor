@@ -36,13 +36,13 @@ else
                             <a class="btn btn-primary me-2" role="button" href="@GameUrl(game.Id)">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                           @*  <button class="btn btn-danger"
+                            <button class="btn btn-danger"
                                     data-bs-toggle="modal"
                                     data-bs-target="@GetDeleteModalId(game)">
                                 <i class="bi bi-x-lg"></i>
-                            </button> *@
+                            </button>
                         </div>
-                        @* <DeleteGame Game="@game" /> *@
+                       <DeleteGame Game="@game" />
                     </td>
                 </tr>
             }
@@ -54,10 +54,12 @@ else
 
     private GameList[]? games;
 
-    protected override void OnInitialized()
-    {
-        games = Client.GetGames();
-    }
+    protected override void OnInitialized() => games = Client.GetGames();
 
     private static string GameUrl(int id) => $"/editgame/{id}";
+
+    private string GetDeleteModalId(GameList game)
+    {
+        return $"#{DeleteGame.GetModalId(game)}";
+    }
 }
